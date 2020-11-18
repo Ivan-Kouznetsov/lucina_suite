@@ -1,0 +1,39 @@
+# fill in this file and rename it to config.py
+
+from typing_extensions import Final
+
+# https://github.com/reddit-archive/reddit/wiki/api
+
+# authentication
+APP_NAME: Final =
+REDDIT_USER: Final = 
+REDDIT_PASSWORD: Final =
+REDDIT_CLIENT_ID: Final = 
+REDDIT_CLIENT_SECRET: Final = 
+
+# fetching
+MAX_POSTS: Final = 500
+MAX_COMMENTS: Final = 10
+TIME_RANGE: Final = "week"
+MAX_MIDDLE_CHARS: Final = 10
+EXCLUDED_SUBREDDIT_KEYWORDS: Final = ["raffle"]
+
+# text analysis
+MIN_FREQ: Final = 10
+RESULT_LIMIT: Final = 15
+
+# Twitter
+TWITTER_API_KEY: Final = 
+TWITTER_API_SECRET_KEY: Final = 
+TWITTER_BEARER_TOKEN: Final = 
+
+TWITTER_ACCESS_TOKEN: Final = 
+TWITTER_ACCESS_TOKEN_SECRET: Final = 
+TWITTER_SPAM_TERMS: Final = ["PM for Details", "#Forex", "#Trading" "PROFITABLE"]
+
+#rules
+PATTERN_RULES: Final = [{"name":"Some rule",
+          "pattern": [{"TEXT": "MYAPP"}, {"POS": "AUX", "OP":"?"}, {"POS":"VERB"}],
+          "pos_to_look_for": "VERB",
+          "lemmas_to_look_for" : ["crash", "freeze", "die", "lag", "kill", "shut", "close", "hog"]
+}]
