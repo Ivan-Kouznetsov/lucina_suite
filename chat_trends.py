@@ -30,11 +30,20 @@ def print_top_words(top_words:list):
          print(Fore.CYAN + str(frequency) + Style.RESET_ALL + " " + word)
 
 def print_difference(top_words_list1:list, top_words_list2:list):
-    first_word_list = [item[0] for item in top_words_list1]
+    top_words_list1_dict = dict(top_words_list1)
+    diff:dict ={}
 
     for word, frequency in top_words_list2:
-         if(word not in first_word_list):
-            print(Fore.CYAN + str(frequency) + Style.RESET_ALL + " " + word)
+        diff[word] = frequency - (top_words_list1_dict[word] if word in [t[0] for t in top_words_list1] else 0)
+    
+    sorted_diff = sorted(diff.items(), key=lambda item: item[1])
+    sorted_diff.reverse()
+
+    for word, frequency_change in sorted_diff:
+        if (frequency_change >= 0):
+            print(Fore.GREEN + "+" + str(frequency_change) + Style.RESET_ALL + " " + word)
+        else:
+            print(Fore.RED + str(frequency_change) + Style.RESET_ALL + " " + word)
 
 print("Reading files")
 
